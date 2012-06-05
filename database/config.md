@@ -6,6 +6,7 @@
 - [Configuring Other Databases](#server)
 - [Setting The Default Connection Name](#default)
 - [Configuration By Environment](#environment)
+- [Mssql connection w/ dblib](#mssqlMac)
 
 Laravel supports the following databases out of the box:
 
@@ -57,3 +58,14 @@ It's common to have database configuration files for each environment your app w
 *Further Reading:*
 
 - *[Environments](/docs/install#environments)*
+
+<a name="mssqlMac"></a>
+## Mssql connection w/ dblib
+
+In order to connect to an mssql server from a unix environment (ie Mac!) using freeTDS, the sqlserver class checks for dsn_type set in config/database.php :
+
+	'driver'   => 'sqlsrv',
+	'dsn_type' => 'dblib'
+
+If set, the slightly different dblib connection syntax will be used to establish the PDO connection
+
